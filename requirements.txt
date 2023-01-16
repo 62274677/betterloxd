@@ -1,0 +1,9 @@
+pysqlite3
+# os
+discord
+# json
+# yaml
+# re
+logger
+# time
+selenium 
