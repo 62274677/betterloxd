@@ -5,8 +5,11 @@ import yaml
 import re
 from logging import Logger
 
+
 import time
 import sqlite3
+import datetime
+import traceback
 from seleniumboxd_helper import *
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
@@ -40,7 +43,13 @@ def emote(guild, name):
 async def on_ready():
     print('We have logged in as {0.user}'.format(client))
 
-
+@client.event
+async def on_error(event, *args, **kwargs):
+    embed = discord.Embed(title=':x: Event Error', colour=0xe74c3c) #Red
+    embed.add_field(name='Event', value=event)
+    embed.description = '```py\n%s\n```' % traceback.format_exc()
+    embed.timestamp = datetime.datetime.utcnow()
+    await client.AppInfo.owner.send(embed=embed)
     
 @client.event
 async def on_message(message):
