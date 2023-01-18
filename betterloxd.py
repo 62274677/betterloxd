@@ -31,7 +31,7 @@ from selenium.webdriver.support import expected_conditions as EC
 
 client = discord.Client()
 
-token = yaml.load(open('data/token.yaml'))['token']
+token = yaml.load(open('/git_repo/data/token.yaml'))['token']
 prefix = 'z!'
 
 
@@ -60,7 +60,7 @@ async def on_message(message):
             content = message.content.split(prefix)[1]
             await message.add_reaction("👀")
             print("Content: "+content)
-            sql = sqlite3.connect("data/users.db", timeout=30)
+            sql = sqlite3.connect("/git_repo/data/users.db", timeout=30)
             cursor = sql.cursor()
             driver = initiate_driver()
             wait = WebDriverWait(driver,30)
