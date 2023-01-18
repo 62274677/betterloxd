@@ -30,8 +30,8 @@ from selenium.webdriver.support import expected_conditions as EC
 
 
 client = discord.Client()
-os.listdir("/git_repo")
-os.listdir("/git_repo/data")
+print(os.listdir("/git_repo"))
+print(os.listdir("/git_repo/data"))
 
 token = yaml.load(open('/git_repo/data/token.yaml'))['token']
 prefix = 'z!'
