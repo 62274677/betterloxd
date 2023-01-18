@@ -29,7 +29,7 @@ from selenium.webdriver.support import expected_conditions as EC
 
 
 
-client = discord.Client(intents=discord.Intents.default())
+client = discord.Client(intents=discord.Intents.all())
 # print(os.listdir("/git_repo"))
 # print(os.listdir("/git_repo/data"))
 
@@ -51,13 +51,15 @@ async def on_error(event, *args, **kwargs):
     embed.add_field(name='Event', value=event)
     embed.description = '```py\n%s\n```' % traceback.format_exc()
     embed.timestamp = datetime.datetime.utcnow()
-    await client.AppInfo.owner.send(embed=embed)
+    await client.send(embed=embed)
     
 @client.event
 async def on_message(message):
     print(message.channel.name=="movielog")
     if message.channel.name == "movielog":
         print(message.content.startswith(prefix))
+        print(message.content)
+        print(prefix)
         if message.content.startswith(prefix):
             print("Message seen")
             content = message.content.split(prefix)[1]
