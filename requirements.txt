@@ -2,7 +2,7 @@
 # os
 discord
 # json
-# yaml
+pyYAML
 # re
 logger
 # time
