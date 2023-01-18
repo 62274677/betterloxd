@@ -57,6 +57,7 @@ async def on_error(event, *args, **kwargs):
 async def on_message(message):
     print(message.channel.name=="movielog")
     if message.channel.name == "movielog":
+        print(message.content.startswith(prefix))
         if message.content.startswith(prefix):
             print("Message seen")
             content = message.content.split(prefix)[1]
