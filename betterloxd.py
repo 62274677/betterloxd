@@ -29,7 +29,7 @@ from selenium.webdriver.support import expected_conditions as EC
 
 
 
-client = discord.Client()
+client = discord.Client(intents=discord.Intents.default())
 # print(os.listdir("/git_repo"))
 # print(os.listdir("/git_repo/data"))
 
